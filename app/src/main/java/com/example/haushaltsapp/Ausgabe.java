@@ -5,11 +5,11 @@ public class Ausgabe {
     private String name;
     private String date;
     private String cycle;
-    private Kategorie kategorie;
+    private String kategorie;
 
     public Ausgabe(){}
 
-    public Ausgabe(String name, String date, String cycle, Kategorie kategorie){
+    public Ausgabe(String name, String date, String cycle, String kategorie){
         super();
         this.name = name;
         this.date = date;
@@ -52,11 +52,11 @@ public class Ausgabe {
         this.cycle = cycle;
     }
 
-    public Kategorie getKategorie() {
+    public String getKategorie() {
         return kategorie;
     }
 
-    public void setKategorie(Kategorie kategorie) {
+    public void setKategorie(String kategorie) {
         this.kategorie = kategorie;
     }
 }

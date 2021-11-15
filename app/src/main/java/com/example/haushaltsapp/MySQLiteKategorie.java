@@ -72,6 +72,7 @@ public class MySQLiteKategorie extends SQLiteOpenHelper {
         kategorie.setColor2(cursor.getString(4));
 
         Log.d("getKategorie", kategorie.toString());
+        db.close();
         return kategorie;
     }
 
@@ -95,7 +96,7 @@ public class MySQLiteKategorie extends SQLiteOpenHelper {
                 kategorien.add(kategorie);
             }while(cursor.moveToNext());
         }
-
+        db.close();
         Log.d("getAllKategorien", kategorien.toString());
         return kategorien;
     }
@@ -122,7 +123,7 @@ public class MySQLiteKategorie extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_KATEGORIE, KEY_ID+" = ?", new String[]{String.valueOf(kategorie.getId())});
-
+        db.close();
         Log.d("deleteKategorie", kategorie.toString());
     }
 
