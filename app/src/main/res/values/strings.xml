@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Haushaltsapp</string>
+    <string name="app_name">HaushaltsappVersion2</string>
+    <string-array name="spinner_category">
+        <item>Wohnen</item>
+        <item>Verkehrsmittel</item>
+        <item>Lebensmittel</item>
+        <item>Gesundheit</item>
+        <item>Freizeit</item>
+        <item>Sonstiges</item>
+    </string-array>
+
+    <string-array name="spinner_cyclus">
+        <item>einmalig</item>
+        <item>monatlich</item>
+    </string-array>
 </resources>
