@@ -11,10 +11,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ShowIntakesActivity extends AppCompatActivity {
+
+    private final int REQUESTCODE_EDIT = 13;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +46,17 @@ public class ShowIntakesActivity extends AppCompatActivity {
     }
 
     public void changeEntry(View view){
-        EditText id = (EditText) findViewById(R.id.textViewEditText);
+        EditText editTextId = (EditText) findViewById(R.id.textViewEditText);
         int valueId = -1;
-        if(!TextUtils.isEmpty(id.getText())) {
-            valueId = Integer.parseInt(id.getText().toString());
+        if(!TextUtils.isEmpty(editTextId.getText())) {
+            valueId = Integer.parseInt(editTextId.getText().toString());
         }
 
         Intent intent = new Intent();
-        intent.putExtra("entry","intake");
+        intent.putExtra("entry","Intake");
         intent.putExtra("id",valueId);
         setResult(RESULT_OK, intent);
         super.finish();
+
     }
 }

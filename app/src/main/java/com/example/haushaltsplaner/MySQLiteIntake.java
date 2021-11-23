@@ -140,6 +140,16 @@ public class MySQLiteIntake extends SQLiteOpenHelper{
 
     public int updateIntake(Intake intake, int id){
         int i = -1;
+        try {
+            deleteIntakeById(id);
+            addIntake(intake);
+            i = 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        /*
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues value = new ContentValues();
 
@@ -159,6 +169,8 @@ public class MySQLiteIntake extends SQLiteOpenHelper{
             i = db.update(TABLE_INTAKE, value, KEY_ID+" = ?", new String[]{idIntake});
         }
         db.close();
+
+         */
 
         return i;
     }

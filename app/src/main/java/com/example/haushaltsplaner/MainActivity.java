@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final int REQUESTCODE_ADD = 12;
     private final int REQUESTCODE_SHOW = 13;
-    private final int REQUESTCODE_EDIT = 13;
+    private final int REQUESTCODE_EDIT = 14;
 
 
     @Override
@@ -69,8 +69,11 @@ public class MainActivity extends AppCompatActivity {
         //float Ausgaben =dboutgo.getValuesOutgosCategory(1,11,2021,  "Sonstiges");
         //float Einnahmen =dboutgo.getValuesOutgosCategory(1,11,2021,  "Sonstiges");
         //Testdaten
-        float Ausgaben =888.0f;
-        float Einnahmen =1000.0f;
+        //float Ausgaben =888.0f;
+        float Ausgaben = outgoDB.getValueOutgosMonth(22,11,2021);
+        float Einnahmen = intakeDB.getValueIntakesMonth(22,11,2021);
+
+        //float Einnahmen =1000.0f;
 
         //Eventuell noch differenz für Restbudget
         float Restbudget = Einnahmen-Ausgaben;
@@ -296,6 +299,24 @@ public class MainActivity extends AppCompatActivity {
         //Daten ausgeben
         //////////////////////////////////////////////////////////////
         if (resultCode == RESULT_OK && requestCode == REQUESTCODE_SHOW) {
+            String entry = data.getExtras().getString("entry");
+            int id = data.getExtras().getInt("id");
+
+            if(entry.equals("Intake") && (id > -1)){
+                Intake intake = intakeDB.getIntakeById(id);
+                Intent switchActivityIntent1 = new Intent(this, EditEntryActivity.class);
+                switchActivityIntent1.putExtra("Bezeichnung","Intake");
+                switchActivityIntent1.putExtra("id",id);
+                switchActivityIntent1.putExtra("name",intake.getName());
+                switchActivityIntent1.putExtra("value",intake.getValue());
+                switchActivityIntent1.putExtra("day",intake.getDay());
+                switchActivityIntent1.putExtra("month",intake.getMonth());
+                switchActivityIntent1.putExtra("year",intake.getYear());
+                switchActivityIntent1.putExtra("cyclus",intake.getCycle());
+                startActivityForResult(switchActivityIntent1, REQUESTCODE_EDIT);
+            }
+
+            /*
             int id = data.getExtras().getInt("id");
             if(data.getExtras().getString("entry").equals("intake") && (id > -1)){ //Intake
                 Intake intake = intakeDB.getIntakeById(id);
@@ -312,6 +333,8 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivityForResult(switchActivityIntent,REQUESTCODE_EDIT);
 
+
+
             }else if(id > -1){ //Outgo
                 Outgo outgo = outgoDB.getOutgoById(id);
 
@@ -327,12 +350,38 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivityForResult(switchActivityIntent,REQUESTCODE_EDIT);
             }
+
+             */
         }
 
         ///////////////////////////////////////////////////////////////
         //Daten löschen oder ändern
         //////////////////////////////////////////////////////////////
         if (resultCode == RESULT_OK && requestCode == REQUESTCODE_EDIT){
+            String selection = data.getExtras().getString("selection");
+            int id = data.getExtras().getInt("id");
+            String entry = data.getExtras().getString("entry");
+            if(selection.equals("clear") && entry.equals("Intake")){
+                intakeDB.deleteIntakeById(id);
+            }else if(selection.equals("update") && entry.equals("Intake")){
+                String name = data.getExtras().getString("name");
+                double value = data.getExtras().getDouble("value");
+                int day = data.getExtras().getInt("day");
+                int month = data.getExtras().getInt("month");
+                int year = data.getExtras().getInt("year");
+                String cycle = data.getExtras().getString("cycle");
+
+                Intake intake = new Intake(name, value, day, month, year, cycle);
+                intakeDB.updateIntake(intake, id);
+            }
+
+
+            /*
+            String selection = data.getExtras().getString("selection");
+            if(selection.equals("loeschen")){
+                int id = data.getExtras().getInt("id");
+            }
+            /*
             String selction = data.getExtras().getString("selection");
             if(selction.equals("clear")){
                 String entry = data.getExtras().getString("Bezeichnung");
@@ -361,8 +410,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+             */
+
 
         }
+        setData();
     }
 
 }

@@ -79,12 +79,24 @@ public class EditEntryActivity extends AppCompatActivity {
             editTextDate = (EditText) findViewById(R.id.editTextDate);
             String dateStr = String.valueOf(day)+"."+String.valueOf(month)+"."+String.valueOf(year);
             editTextDate.setText(dateStr);
-
-
         }
 
         public void onClickchange(View view){
+            getValues();
 
+            Intent intent = new Intent();
+            intent.putExtra("entry",bezeichnung); //bezeichnung ändern
+            intent.putExtra("selection","update");
+            intent.putExtra("id",id);
+            intent.putExtra("name",name);
+            intent.putExtra("value",value);
+            intent.putExtra("day",day);
+            intent.putExtra("month",month);
+            intent.putExtra("year",year);
+            intent.putExtra("cyclus",cyclus);
+            setResult(RESULT_OK, intent);
+            super.finish();
+/*
             Intent data = new Intent();
             data.putExtra("selection","change");
             data.putExtra("Bezeichnung",bezeichnung);
@@ -101,17 +113,16 @@ public class EditEntryActivity extends AppCompatActivity {
 
             setResult(RESULT_OK, data);
             super.finish();
-
+*/
         }
 
         public void onClickdeli(View view){
             Intent intent = new Intent();
-            intent.putExtra("entry","intake");
-            intent.putExtra("Bezeichnung",bezeichnung);
+            intent.putExtra("entry",bezeichnung); //bezeichnung ändern
+            intent.putExtra("selection","clear");
             intent.putExtra("id",id);
             setResult(RESULT_OK, intent);
             super.finish();
-
         }
 
         private void getValues(){
