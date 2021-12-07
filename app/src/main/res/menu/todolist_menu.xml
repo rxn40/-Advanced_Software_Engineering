@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/itemStartseite"
+        android:title="Startseite"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/itemEinnahmenAusgaben"
+        android:title="Einnahmen/Ausnahmen anlegen"
+        app:showAsAction="never"/>
+
+
+    <item android:id="@+id/itemBudgetLimit"
+        android:title="Budget Limit festlegen"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/itemDiagrammansicht"
+        android:title="Diagrammansicht"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/itemTabelle"
+        android:title="Tabellenansicht"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/itemKalender"
+        android:title="Kalender"
+        app:showAsAction="never"/>
+
+</menu>
