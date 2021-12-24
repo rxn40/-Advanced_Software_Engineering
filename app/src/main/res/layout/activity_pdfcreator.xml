@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PDFCreatorActivity">
+    <TextView
+        android:layout_height="65dp"
+        android:layout_width="180dp"
+        app:layout_constraintVertical_bias="0.091"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:autoSizeTextType="uniform"
+        android:text="Selected Date"
+        android:id="@+id/selectView"/>
+
+    <ImageView android:layout_height="50dp"
+        android:layout_width="70dp"
+        app:layout_constraintVertical_bias="0.101"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/calenderView"
+        app:srcCompat="@android:drawable/ic_menu_day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/createPdfButton"
+        android:layout_width="155dp"
+        android:layout_height="76dp"
+        android:text="Create PDF"
+        app:layout_constraintBottom_toTopOf="@+id/viewPdfButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.943" />
+
+    <Button
+        android:id="@+id/viewPdfButton"
+        android:layout_width="155dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="92dp"
+        android:text="Show PDF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
