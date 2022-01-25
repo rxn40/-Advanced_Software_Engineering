@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.haushaltsapp" >
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_symbol_app"
+        android:logo="@mipmap/ic_symbol_app"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_symbol_app_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Haushaltsapp"
+        android:requestLegacyExternalStorage="true" >
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <activity
+            android:name=".AddCategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteCategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PDFCreatorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AnnualViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MonthcomparisonViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ToDoListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditEntryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DiagramViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChartViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CalendarEventActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BudgetLimitActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddEntryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

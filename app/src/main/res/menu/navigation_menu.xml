@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/itemMainPage"
+        android:title="Startseite"/>
+
+    <item android:id="@+id/itemEdit"
+        android:title="Einnahmen/Ausgaben anlegen">
+        <menu>
+            <item android:id="@+id/subitemAddIntakes"
+                android:title="Einnahmen"/>
+
+            <item android:id="@+id/subitemAddOutgoes"
+                android:title="Ausgaben"/>
+        </menu>
+    </item>
+
+
+    <item android:id="@+id/itemAddCategory"
+        android:title="Kategorie hinzufügen"/>
+
+    <item android:id="@+id/itemDeleteCategory"
+        android:title="Kategorie löschen"/>
+
+    <item android:id="@+id/itemBudgetLimit"
+        android:title="Budget Limit festlegen"/>
+
+    <item android:id="@+id/itemDiagramView"
+        android:title="Diagrammansicht"/>
+
+    <item android:id="@+id/itemTableView"
+        android:title="Tabellenansicht"/>
+
+    <item android:id="@+id/itemCalendar"
+        android:title="Kalender"/>
+
+    <item android:id="@+id/itemToDoListe"
+        android:title="To-Do Liste"/>
+
+    <item android:id="@+id/itemPdfCreator"
+        android:title="Generiere PDF"/>
+
+
+</menu>
