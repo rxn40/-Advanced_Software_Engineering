@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundGray"
+    tools:context=".CalendarEventActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewGraph"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/colorBackgroundWhite">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="Kalender"
+                    android:textSize="35sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTextGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/selectView"
+                        android:layout_width="180dp"
+                        android:layout_height="50dp"
+                        android:textSize="20dp"
+                        android:text="Selektiertes Datum:"
+                        android:layout_marginStart="20dp"
+                        android:textColor="@color/colorTextGray"/>
+
+                    <ImageView
+                        android:id="@+id/calenderView"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="50dp"
+                        app:srcCompat="@drawable/ic_baseline_event" />
+
+                </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/calendarDate"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="25dp"
+                            android:text="Datum"
+                            android:textColor="@color/colorTextGray"
+                            android:textSize="26sp" />
+
+                        <Switch
+                            android:id="@+id/switchDaily"
+                            android:layout_width="140dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="25dp"
+                            android:text="Ganztägig"
+                            android:textColor="@color/colorTextGray" />
+
+                        <EditText
+                            android:id="@+id/titleSelect"
+                            android:layout_width="220dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="25dp"
+                            android:autoSizeTextType="uniform"
+                            android:hint="Titel"
+                            android:inputType="text"
+                            android:textColor="@color/colorTextGray" />
+
+                        <EditText
+                            android:id="@+id/locationSelect"
+                            android:layout_width="220dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="25dp"
+                            android:autoSizeTextType="uniform"
+                            android:hint="Ort"
+                            android:inputType="text"
+                            android:textColor="@color/colorTextGray" />
+
+
+                        <EditText
+                            android:id="@+id/descriptionSelect"
+                            android:layout_width="220dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="25dp"
+                            android:autoSizeTextType="uniform"
+                            android:hint="Beschreibung"
+                            android:inputType="text"
+                            android:textColor="@color/colorTextGray" />
+
+
+                        <Button
+                            android:id="@+id/createEvent"
+                            android:layout_width="180dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/colorButton"
+                            android:text="Termin eintragen"
+                            android:textColor="@color/colorTextGray" />
+
+                        <Button
+                            android:id="@+id/showEvent"
+                            android:layout_width="180dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:backgroundTint="@color/colorButton"
+                            android:onClick="viewEvent"
+                            android:text="Kalender anzeigen"
+                            android:textColor="@color/colorTextGray" />
+
+
+
+            </LinearLayout>
+     </androidx.cardview.widget.CardView>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
